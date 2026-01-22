@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="image copy 8.png">
     <link rel="icon" href="favicon.ico">
+    <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
         <!-- Open Graph / Twitter -->
         <meta property="og:title" content="Hans Ravit & Associates | Chartered Accountants">
         <meta property="og:description" content="Chartered Accountants offering taxation, audit, accounting and advisory services for startups, SMEs and corporates.">
@@ -51,12 +54,23 @@
                 <span class="sr-only">Toggle navigation</span>
                 ☰
             </button>
-            <div class="nav-links" id="navLinks">
-                <a href="#story">Our Story</a>
-                <a href="#services">Services</a>
-                <a href="#team">Team</a>
-                <a href="#contact" class="btn-nav">Contact</a>
-            </div>
+          <div class="nav-links" id="navLinks">
+    <a href="#story">Our Story</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Useful Links <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu">
+            <a href="https://www.incometax.gov.in/iec/foportal/help/individual/return-applicable-1" target="_blank" rel="noopener noreferrer">🔍 PAN Search</a>
+            <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener noreferrer">💼 Income Tax Portal</a>
+            <a href="https://www.gst.gov.in" target="_blank" rel="noopener noreferrer">📊 GST Portal</a>
+            <a href="https://services.gst.gov.in/services/searchtp" target="_blank" rel="noopener noreferrer">🔎 GST Search</a>
+        </div>
+    </div>
+    <a href="#contact" class="btn-nav">Contact</a>
+</div>
         </div>
     </nav>
 
@@ -138,8 +152,8 @@
                     <p class="feature-desc">Deep understanding of compliance, controls & reporting.</p>
                 </div>
                 <div class="feature-item">
-                    <h4><span class="check">✓</span> Partner-led</h4>
-                    <p class="feature-desc">Personalized service directly from senior partners.</p>
+                    <h4><span class="check">✓</span> Customer-Focused Approach</h4>
+                    <p class="feature-desc">We listen, understand your needs, and tailor solutions that work for you.</p>
                 </div>
                 <div class="feature-item">
                     <h4><span class="check">✓</span> Ethical Delivery</h4>
@@ -405,21 +419,11 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img">
-                        <!-- <img src="image.png" alt="Partner" loading="lazy"> -->
-                    </div>
-                    <div class="team-info">
-                        <h3>Senior Partner</h3>
-                        <span class="role">Audit & Assurance</span>
-                        <p class="team-desc">Specializes in Statutory Audits and Corporate Compliance for large entities.</p>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-img">
                         <!-- <img src="image.png" alt="Manager" loading="lazy"> -->
                     </div>
                     <div class="team-info">
                         <h3>Audit Manager</h3>
-                        <span class="role">Internal Controls</span>
+                        <span class="role">Internal Audit & Assurance Services</span>
                         <p class="team-desc">Focuses on risk assessment, process optimization, and internal audits.</p>
                     </div>
                 </div>
@@ -486,24 +490,57 @@
         </div>
     </section>
 
-    <footer id="contact" class="footer">
+    <section id="contact" class="section-padding contact-section">
         <div class="container">
-            <h2 style="color: white;">Let's Work Together</h2>
-            <p>CA Ravit Hans is a qualified Chartered Accountant and a Fellow Member of the Institute of Chartered Accountants of India (ICAI). With more than 8 years of professional experience, he brings deep technical knowledge combined with a practical understanding of business realities.
-</p>
-            <p>Hans Ravit & Associates is your trusted partner for accounting, taxation, and advisory services.</p>
-            
-            <div class="contact-details">
-                <div class="contact-row">
-                    <span>📞</span> +91 8168745203
-                </div>
-                <div class="contact-row">
-                    <span>✉️</span> info@hra-ca.com
-                </div>
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2>Get in Touch</h2>
+                <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
             </div>
 
-            <a href="mailto:info@hra-ca.com" class="footer-cta">Get in Touch Today</a>
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzzzpwzo" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="message" placeholder="Tell us about your query or project..." rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn form-submit-btn">Send Message</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+
+            <div class="contact-info-section">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-row">
+                        <span>📞</span> +91 8168745203
+                    </div>
+                    <div class="contact-row">
+                        <span>✉️</span> info@hra-ca.com
+                    </div>
+                </div>
+                <p class="contact-description">CA Ravit Hans is a qualified Chartered Accountant and a Fellow Member of the Institute of Chartered Accountants of India (ICAI). With more than 8 years of professional experience, we bring deep technical knowledge combined with a practical understanding of business realities.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
             <div class="copyright">
                 &copy; 2024 Hans Ravit & Associates. All rights reserved.
             </div>
