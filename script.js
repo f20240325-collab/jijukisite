@@ -232,7 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.5,
+      threshold: 0.7,
+      delay: 100,
       rootMargin: '-50px'
     });
 
@@ -255,7 +256,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.5,
+      threshold: 0.7,
+      delay: 100,
       rootMargin: '-50px'
     });
 
@@ -278,7 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.3
+      threshold: 0.7,
+      delay: 100,
     });
 
     featureItems.forEach(item => featureObserver.observe(item));
@@ -292,7 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }, {
-      threshold: 0.3
+      threshold: 0.7,
+      delay: 100,
     });
 
     hoverCards.forEach(card => hoverObserver.observe(card));
